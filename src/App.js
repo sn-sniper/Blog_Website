@@ -26,21 +26,21 @@ function App() {
           <img src={logo} alt="logo"/>
         </div>
         <div className="nav-links">
-        <Link to="/"> Home </Link>
+          <Link to="/Blog_Website/"> Home </Link>
 
         {!isAuth ? (
-          <Link to="/login"> Login </Link>
+            <Link to="/Blog_Website/login"> Login </Link>
         ) : (
           <>
-            <Link to="/createpost"> Create Post </Link>
+                <Link to="/Blog_Website/createpost"> Create Post </Link>
             <button onClick={signUserOut} className="Logout"> Log Out</button>
           </>
         )}</div>
       </nav>
       <Routes>
-        <Route path="/" element={<Home isAuth={isAuth} />} />
-        <Route path="/createpost" element={<Create isAuth={isAuth} />} />
-        <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+        <Route path="/Blog_Website/" element={<Home isAuth={isAuth} />} />
+        <Route path="/Blog_Website/createpost" element={<Create isAuth={isAuth} />} />
+        <Route path="/Blog_Website/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
     </Router>
   );
