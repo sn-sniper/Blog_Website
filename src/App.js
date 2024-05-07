@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
+import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
@@ -26,21 +27,24 @@ function App() {
           <img src={logo} alt="logo"/>
         </div>
         <div className="nav-links">
-          <Link to="/Blog_Website/"> Home </Link>
+          <Link to="/"> Home </Link>
 
         {!isAuth ? (
-            <Link to="/Blog_Website/login"> Login </Link>
+            <Link to="/login"> Login </Link>
         ) : (
           <>
-                <Link to="/Blog_Website/createpost"> Create Post </Link>
+                <Link to="/createpost"> Create Post </Link>
             <button onClick={signUserOut} className="Logout"> Log Out</button>
           </>
-        )}</div>
+        )}
+          <Link to="/contact-us">Contact Us</Link>
+        </div>
       </nav>
       <Routes>
-        <Route path="/Blog_Website/" element={<Home isAuth={isAuth} />} />
-        <Route path="/Blog_Website/createpost" element={<Create isAuth={isAuth} />} />
-        <Route path="/Blog_Website/login" element={<Login setIsAuth={setIsAuth} />} />
+        <Route path="/" element={<Home isAuth={isAuth} />} />
+        <Route path="/createpost" element={<Create isAuth={isAuth} />} />
+        <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+        <Route path="/contact-us" element={<Contact isAuth={isAuth}/>} />
       </Routes>
     </Router>
   );

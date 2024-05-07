@@ -21,7 +21,7 @@ function Create({ isAuth }) {
 
     useEffect(() => {
         if (!isAuth) {
-            navigate("/Blog_Website/login");
+            navigate("/login");
         }
     }, []);
 
